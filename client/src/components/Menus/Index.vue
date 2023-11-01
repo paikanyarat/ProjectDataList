@@ -1,10 +1,12 @@
 <template>
+  <center>
   <div>
     <h2>Get all Menus</h2>
     <h4>จํานวนเมนูอาหาร {{ menus.length }}</h4>
     <p>
-      <button v-on:click="navigateTo('/menu/create')">
-        สร้างข้อมูลเมนูอาหาร
+      <button class="button" v-on:click="navigateTo('/menu/create')">
+        สร้างข้อมูลเมนูอาหาร<div class="hoverEffect"><div>
+</div></div>
       </button>
     </p>
 
@@ -14,20 +16,22 @@
       <p>ขนาด : {{ menu.size }}</p>
       <p>ราคา : {{ menu.price }} บาท</p>
       <p>
-        <button v-on:click="navigateTo('/menu/' + menu.id)">
+        <button class="botton" v-on:click="navigateTo('/menu/' + menu.id)">
           ดูข้อมูลเมนูอาหาร
         </button>
 
-        <button v-on:click="navigateTo('/menu/edit/' + menu.id)">
+        <button class="botton" v-on:click="navigateTo('/menu/edit/' + menu.id)">
           แก้ไขข้อมูลเมนูอาหาร
         </button>
 
-        <button v-on:click="deleteMenu(menu)">ลบข้อมูลเมนูอาหาร</button>
+        <button class="button" v-on:click="deleteMenu(menu)">ลบข้อมูลเมนูอาหาร</button>
       </p>
       <hr />
     </div>
   </div>
+</center>
 </template>
+
 <script>
 import MenusService from "@/services/MenusService";
 export default {
@@ -64,4 +68,27 @@ export default {
   },
 };
 </script>
-<style scoped></style>
+
+
+<style scoped>
+button {
+  outline: none;
+  color: #DAA06D;
+  padding: 0.5em;
+  padding-left: 3em;
+  padding-right: 2em;
+  border: 2px dashed #DAA06D;
+  border-radius: 15px;
+  background-color: #EADDCA;
+  box-shadow: 0 0 0 4px #EADDCA, 2px 2px 4px 2px rgba(0, 0, 0, 0.5);
+  transition: .1s ease-in-out, .4s color;
+}
+
+button:active {
+  transform: translateX(0.1em) translateY(0.1em);
+  box-shadow: 0 0 0 4px #EADDCA, 1.5px 1.5px 2.5px 1.5px rgba(0, 0, 0, 0.5);
+}
+
+
+
+</style>
